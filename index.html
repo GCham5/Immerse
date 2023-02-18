@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Immerse</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="controls">
+        <button id="play-pause">Play</button>
+        <button id="next">Next</button>
+        <button id="previous">Previous</button>
+        <input type="range" id="seek" value="0" min="0" max="100" step="1">
+      </div>
+      <canvas id="canvas"></canvas>
+      <!-- <audio id="audio1" controls>
+        <source src="Havana.m4a">
+      </audio> -->
+      <!-- <audio id="audio" src="Havana.m4a"></audio>   -->
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
