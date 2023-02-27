@@ -39,7 +39,7 @@ function playNext() {
 }
 
 function playPrevious() {
-  currentAudioIndex--;
+  currentAudioIndex--; 
   if (currentAudioIndex < 0) {
     currentAudioIndex = audioFiles.length - 1;
   }
@@ -69,7 +69,7 @@ analyser = audioCtx.createAnalyser();
 audioSource.connect(analyser);
 analyser.connect(audioCtx.destination);
 
-analyser.fftSize = 128;
+analyser.fftSize = 64;
 const bufferLength = analyser.frequencyBinCount; // half of fftSize
 const dataArray = new Uint8Array(bufferLength);
 const barWidth = canvas.width / bufferLength;
@@ -77,34 +77,35 @@ const barWidth = canvas.width / bufferLength;
 // draw a cirlce
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
-const radius = 50; 
+const radius = 100; 
 // ctx.fillStyle = 'blue';
-// ctx.beginPath();
+// ctx.beginPath(); 
 // ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
 // ctx.fill();
 // ctx.stroke();
 
 // Draw the rectangle
-const rectWidth = 100;
+const rectWidth = 20;
 const rectHeight = 20;
 const angleStep = 2 * Math.PI / bufferLength;
 function animate(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   analyser.getByteFrequencyData(dataArray);
-
   for (let i = 0; i < bufferLength; i++) {
     const angle = i * angleStep;
     const x = centerX + radius * Math.cos(angle);
     const y = centerY + radius * Math.sin(angle);
-    barHeight = dataArray[i];    
-    const red = (i * barHeight) / 10;
-    const green = i * 4;
-    const blue = barHeight / 4 - 12;
+    barHeight = dataArray[i]; 
+    const red = (i * barHeight) / 10; 
+    const green = barHeight - 10;  
+    const blue = barHeight / 4 ;
     ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`; 
     ctx.save(); // save origin context (0,0)
     ctx.translate(x, y); // make this point on the circumference the new origin
     ctx.rotate(angle);
-    ctx.fillRect( -rectWidth / 2 , -rectHeight / 2, rectHeight, 100);
+    // ctx.fillRect( -rectWidth / 2, canvas.height - barHeight*3, 70, canvas.height);
+
+    ctx.fillRect( -rectWidth / 2 , -rectHeight / 2, barHeight, rectWidth );
     ctx.restore(); 
   }
   requestAnimationFrame(animate); 
@@ -118,16 +119,16 @@ function animate2() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     analyser.getByteFrequencyData(dataArray);
     for (let i = 0; i < bufferLength; i++) { 
-        barHeight = dataArray[i];    
+        barHeight = dataArray[i];
         const red = (i * barHeight) / 10;
-        const green = i * 4;
+        const green = barHeight / 2 - 12;
         const blue = barHeight / 4 - 12;
         ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`; 
         ctx.fillRect(x, canvas.height - barHeight*2, barWidth, canvas.height);
         x += barWidth;
     }
 
-    requestAnimationFrame(animate2);  
+    requestAnimationFrame(animate2);   
 }
 
 animate();
