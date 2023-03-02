@@ -9,6 +9,7 @@ const playPauseButton = document.getElementById("play-pause");
 const nextButton = document.getElementById('next');
 const previousButton = document.getElementById('previous');
 const seekBar = document.getElementById('seek');
+const dropDown = document.getElementById('dropdown');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight; 
@@ -47,11 +48,20 @@ function playPrevious() {
   audio.play();
 }
 
+function changeVisual() {
+  if (dropDown.value == "1") {
+    animate()
+  }else if (dropDown.value == "2") {
+    animate2()
+  }
+}
+
 playPauseButton.addEventListener("click", playPause);
 nextButton.addEventListener("click", playNext);
 previousButton.addEventListener("click", playPrevious);
+dropDown.addEventListener('change', changeVisual);
 
-
+ 
 seekBar.addEventListener('change', function() {
   const seekTime = audio.duration * (seekBar.value / 100);
   audio.currentTime = seekTime;
@@ -69,7 +79,7 @@ analyser = audioCtx.createAnalyser();
 audioSource.connect(analyser);
 analyser.connect(audioCtx.destination);
 
-analyser.fftSize = 64;
+analyser.fftSize = 128;
 const bufferLength = analyser.frequencyBinCount; // half of fftSize
 const dataArray = new Uint8Array(bufferLength);
 const barWidth = canvas.width / bufferLength;
@@ -96,9 +106,9 @@ function animate(){
     const x = centerX + radius * Math.cos(angle);
     const y = centerY + radius * Math.sin(angle);
     barHeight = dataArray[i]; 
-    const red = (i * barHeight) / 10; 
-    const green = barHeight - 10;  
-    const blue = barHeight / 4 ;
+    const red = (i * barHeight) / 10;
+    const green = i * 4;
+    const blue = barHeight / 4 - 12;
     ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`; 
     ctx.save(); // save origin context (0,0)
     ctx.translate(x, y); // make this point on the circumference the new origin
@@ -121,7 +131,7 @@ function animate2() {
     for (let i = 0; i < bufferLength; i++) { 
         barHeight = dataArray[i];
         const red = (i * barHeight) / 10;
-        const green = barHeight / 2 - 12;
+        const green = i * 4;
         const blue = barHeight / 4 - 12;
         ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`; 
         ctx.fillRect(x, canvas.height - barHeight*2, barWidth, canvas.height);
@@ -131,4 +141,4 @@ function animate2() {
     requestAnimationFrame(animate2);   
 }
 
-animate();
+// animate();
