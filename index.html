@@ -4,27 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Immerse</title>
   </head>
   <body>
     <div id="container">
       <div id="controls">
-        <button id="play-pause">Play</button>
-        <button id="next">Next</button>
-        <button id="previous">Previous</button>
+        <button id="previous">
+          <i class="fa-solid fa-backward-fast"></i>
+        </button>
+        <button id="play-pause">
+          <i id="play-pause-icon" class="fa-solid fa-play"></i>
+        </button> 
+        <button id="next">
+          <i class="fa-solid fa-forward-fast"></i>
+        </button>
         <input type="range" id="seek" value="0" min="0" max="100" step="1">
         <select id="dropdown">
           <option value="1">One</option>
           <option value="2">Two</option>
         </select>
       </div>
-      <canvas id="canvas"></canvas>
-      <!-- <audio id="audio1" controls>
-        <source src="Havana.m4a">
-      </audio> -->
-      <!-- <audio id="audio" src="Havana.m4a"></audio>   -->
+      <div>
+        <canvas id="canvas"></canvas>
+      </div>
+      
     </div>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/js/animate.js"></script>
+    <script type="module" src="/js/controls.js"></script>
+    <script type="module" src="/js/main.js"></script>
   </body>
 </html>
