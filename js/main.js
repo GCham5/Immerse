@@ -1,6 +1,6 @@
 import { playPause, playNext, playPrevious, changeVisual } from "./controls";
 
-export const audioFiles = ['Havana.m4a', 'Benzo.m4a', 'Romantic.m4a'];
+export const audioFiles = ['./music/Havana.m4a', './music/Benzo.m4a', './music/Romantic.m4a', './music/Praise.m4a', './music/LastTime.m4a', './music/DontYouKnow.m4a'];
 
 export let audio = new Audio(audioFiles[0]);
 
@@ -9,8 +9,8 @@ const container = document.getElementById("container");
 const playPauseButton = document.getElementById("play-pause");
 const nextButton = document.getElementById('next');
 const previousButton = document.getElementById('previous');
-const seekBar = document.getElementById('seek');
-const dropDown = document.getElementById('dropdown'); 
+const seekBar = document.getElementById('seek'); 
+const dropDown = document.getElementById('dropdown');
 const playPauseIcon = document.getElementById('play-pause-icon');  
 
 
