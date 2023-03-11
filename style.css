@@ -12,12 +12,29 @@ i {
   font-size: 24px;
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+/* classes */
 .controls-item {
+  background-color: transparent;
+  border: none;
+  padding: 0;
   margin: 0px 2px 0px 2px;
+  z-index: 3;
 }
 
 .fa-sun {
   color: #fff;
+}
+
+.radio-icon {
+  margin-right: 7px;
+}
+
+input[type="radio"]:checked + label .radio-icon i {
+  color: #e5e5e5;
 }
 
 
@@ -47,7 +64,7 @@ i {
   align-items: center;
   padding: 12px 15px 12px 15px;
   margin-top: 8px;
-  background-color: #FFFFF0;
+  background-color: #27C36A;
   border-radius: 10px;
   z-index: 2;
 }
@@ -55,6 +72,12 @@ i {
 #play-pause {
   width: 40px;
 }
+
+#visual-option {
+  display: flex;
+  font-family: "Font Awesome 5 Free";
+}
+
 
 #light-toggle {
   position: absolute;
@@ -77,10 +100,9 @@ i {
 
 #seek::-webkit-slider-thumb {
   -webkit-appearance: none;
-  /* appearance: none; */
   width: 20px;
   height: 20px;
-  background: #fff;
+  background: black;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -103,6 +125,6 @@ button:hover {
   cursor: pointer;
 }
 
-#light-toggle:hover {
+i:hover {
   cursor: pointer;
 }

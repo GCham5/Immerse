@@ -33,10 +33,11 @@ export function playPrevious() {
     audio.play();
 }
 
-export function changeVisual(dropDown) {
-    if (dropDown.value == "1") {
+export function changeVisual() {
+    const selectedOption = document.querySelector('input[name="option"]:checked').value;
+    if (selectedOption == "circle") {
         animate();
-    } else if (dropDown.value == "2") {
+    } else if (selectedOption == "bar") {
         animate2();
     }
 }

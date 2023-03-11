@@ -11,7 +11,7 @@ const playPauseButton = document.getElementById("play-pause");
 const nextButton = document.getElementById('next');
 const previousButton = document.getElementById('previous');
 const seekBar = document.getElementById('seek'); 
-const dropDown = document.getElementById('dropdown'); 
+const visualOption = document.getElementById('visual-option'); 
 const playPauseIcon = document.getElementById('play-pause-icon');  
 const lightToggleIcon = document.getElementById('light-toggle');
 
@@ -20,7 +20,7 @@ playPauseButton.addEventListener("click", () => playPause(playPauseIcon));
 nextButton.addEventListener("click", playNext);
 previousButton.addEventListener("click", playPrevious);
 document.addEventListener("DOMContentLoaded", function() {
-  dropDown.addEventListener('change', () => changeVisual(dropDown)); 
+  visualOption.addEventListener('change', () => changeVisual()); 
 }); 
 
  
@@ -34,19 +34,17 @@ audio.addEventListener('timeupdate', () =>  {
   const duration = audio.duration;
   const progress = (currentTime / duration) * 100;
   seekBar.value = progress;
-  seekBar.style.background = `linear-gradient(to right, black 0%, black ${progress}%, gray ${progress}%, gray 100%)`;
+  seekBar.style.background = `linear-gradient(to right, black 0%, black ${progress}%, white ${progress}%, white 100%)`;
 });
 
 lightToggleIcon.addEventListener('click', () => {
   if (isDark) {
     body.style.backgroundColor = 'white';
-    controls.style.backgroundColor = 'gray';
     lightToggleIcon.classList.remove('fa-sun');
     lightToggleIcon.classList.add('fa-moon');
     isDark = false;
   } else {
     body.style.backgroundColor = 'black';
-    controls.style.backgroundColor = '#FFFFF0';
     lightToggleIcon.classList.remove('fa-moon');
     lightToggleIcon.classList.add('fa-sun');
     isDark = true;
