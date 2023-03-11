@@ -12,6 +12,16 @@ i {
   font-size: 24px;
 }
 
+.controls-item {
+  margin: 0px 2px 0px 2px;
+}
+
+.fa-sun {
+  color: #fff;
+}
+
+
+/* ids */
 #canvas {
   position: absolute;
   top: auto;
@@ -46,12 +56,9 @@ i {
   width: 40px;
 }
 
-.controls-item {
-  margin: 0px 2px 0px 2px;
-}
-
-button:hover {
-  cursor: pointer;
+#light-toggle {
+  position: absolute;
+  right: 30px;
 }
 
 #seek {
@@ -89,3 +96,13 @@ button:hover {
   transform: scale(1.5);
 }
 
+
+
+/* hovers */
+button:hover {
+  cursor: pointer;
+}
+
+#light-toggle:hover {
+  cursor: pointer;
+}
