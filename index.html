@@ -9,28 +9,28 @@
     <title>Immerse</title>
   </head>
   <body>
-    <div id="container">
-      <div id="controls">
-        <button id="previous">
-          <i class="fa-solid fa-backward-fast"></i>
-        </button>
-        <button id="play-pause">
-          <i id="play-pause-icon" class="fa-solid fa-play"></i>
-        </button> 
-        <button id="next">
-          <i class="fa-solid fa-forward-fast"></i>
-        </button>
-        <input type="range" id="seek" value="0" min="0" max="100" step="1">
-        <select id="dropdown">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-        </select>
+      <div id="controls-main">
+        <div id="controls">
+          <button class="controls-item" id="previous">
+            <i class="fa-solid fa-backward-fast"></i>
+          </button>
+          <button class="controls-item" id="play-pause">
+            <i id="play-pause-icon" class="fa-solid fa-play"></i>
+          </button> 
+          <button class="controls-item" id="next">
+            <i class="fa-solid fa-forward-fast"></i>
+          </button>
+          <input class="controls-item" type="range" id="seek" value="0" min="0" max="100" step="1">
+          <select class="controls-item" id="dropdown">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+          </select>
+        </div>
       </div>
       <div>
         <canvas id="canvas"></canvas>
       </div>
-      
-    </div>
+
     <script type="module" src="/js/animate.js"></script>
     <script type="module" src="/js/controls.js"></script>
     <script type="module" src="/js/main.js"></script>

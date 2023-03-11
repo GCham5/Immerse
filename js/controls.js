@@ -22,7 +22,7 @@ export function playNext() {
     }
     audio.src = audioFiles[currentAudioIndex];
     audio.play();
-}
+} 
 
 export function playPrevious() {
     currentAudioIndex--;

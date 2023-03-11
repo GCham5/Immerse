@@ -4,8 +4,6 @@ export const audioFiles = ['./music/Havana.m4a', './music/Benzo.m4a', './music/R
 
 export let audio = new Audio(audioFiles[0]);
 
- 
-const container = document.getElementById("container");
 const playPauseButton = document.getElementById("play-pause");
 const nextButton = document.getElementById('next');
 const previousButton = document.getElementById('previous');
@@ -18,13 +16,13 @@ playPauseButton.addEventListener("click", () => playPause(playPauseIcon));
 nextButton.addEventListener("click", playNext);
 previousButton.addEventListener("click", playPrevious);
 document.addEventListener("DOMContentLoaded", function() {
-  dropDown.addEventListener('change', () => changeVisual(dropDown));
+  dropDown.addEventListener('change', () => changeVisual(dropDown)); 
 }); 
 
  
 seekBar.addEventListener('change', function() {
   const seekTime = audio.duration * (seekBar.value / 100);
-  audio.currentTime = seekTime;
+  audio.currentTime = seekTime;  
 });
 
 audio.addEventListener('timeupdate', function() {
@@ -32,5 +30,6 @@ audio.addEventListener('timeupdate', function() {
   const duration = audio.duration;
   const progress = (currentTime / duration) * 100;
   seekBar.value = progress;
+  seekBar.style.background = `linear-gradient(to right, black 0%, black ${progress}%, gray ${progress}%, gray 100%)`;
 });
 
