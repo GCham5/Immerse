@@ -1,9 +1,10 @@
 import { audio, audioFiles } from './main';
-import { animate, animate2 } from './animate';
+import { audioCtx, animate, animate2 } from './animate';
 
 let currentAudioIndex = 0;
 
 export function playPause(playPauseIcon) {
+    checkAudioCtxState();
     if (audio.paused) {
         audio.play();
         playPauseIcon.classList.remove('fa-play');
@@ -16,6 +17,7 @@ export function playPause(playPauseIcon) {
 }
 
 export function playNext() {
+    checkAudioCtxState();
     currentAudioIndex++; 
     if (currentAudioIndex >= audioFiles.length) {
         currentAudioIndex = 0;
@@ -25,6 +27,7 @@ export function playNext() {
 } 
 
 export function playPrevious() {
+    checkAudioCtxState();
     currentAudioIndex--;
     if (currentAudioIndex < 0) {
         currentAudioIndex = audioFiles.length - 1;
@@ -40,4 +43,13 @@ export function changeVisual() {
     } else if (selectedOption == "bar") {
         animate2();
     }
+}
+
+function checkAudioCtxState() {
+    // checking if audioCtx is suspended, i.e not actived by gesture
+    // this will mostly occur on page refresh (first time clicking play, hence also call changeVisual())
+    if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+        changeVisual();
+      }
 }

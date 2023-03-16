@@ -6,7 +6,6 @@ export let audio = new Audio(audioFiles[0]);
 let isDark = true;
 
 const body = document.body;
-const controls =  document.getElementById('controls');
 const playPauseButton = document.getElementById("play-pause");
 const nextButton = document.getElementById('next');
 const previousButton = document.getElementById('previous');
