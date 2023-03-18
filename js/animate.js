@@ -49,8 +49,6 @@ export function animate() {
     ctx.save(); // save origin context (0,0)
     ctx.translate(x, y); // make this point on the circumference the new origin
     ctx.rotate(angle);
-    // ctx.fillRect( -rectWidth / 2, canvas.height - barHeight*3, 70, canvas.height);
-
     ctx.fillRect(-rectWidth / 2, -rectHeight / 2, barHeight, rectWidth);
     ctx.restore();
   }

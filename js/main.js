@@ -15,9 +15,9 @@ const playPauseIcon = document.getElementById('play-pause-icon');
 const lightToggleIcon = document.getElementById('light-toggle');
 
 
-playPauseButton.addEventListener("click", () => playPause(playPauseIcon));
-nextButton.addEventListener("click", playNext);
-previousButton.addEventListener("click", playPrevious);
+playPauseButton.addEventListener("click", () => playPause());
+nextButton.addEventListener("click", () => playNext());
+previousButton.addEventListener("click", () => playPrevious());
 document.addEventListener("DOMContentLoaded", function() {
   visualOption.addEventListener('change', () => changeVisual()); 
 }); 
@@ -28,6 +28,7 @@ seekBar.addEventListener('change', () => {
   audio.currentTime = seekTime;  
 });
 
+// update progress bar
 audio.addEventListener('timeupdate', () =>  {
   const currentTime = audio.currentTime;
   const duration = audio.duration;
@@ -36,6 +37,19 @@ audio.addEventListener('timeupdate', () =>  {
   seekBar.style.background = `linear-gradient(to right, black 0%, black ${progress}%, white ${progress}%, white 100%)`;
 });
 
+// change icons
+audio.addEventListener('play', () => {
+  playPauseIcon.classList.remove('fa-play');
+  playPauseIcon.classList.add('fa-pause');
+});
+
+audio.addEventListener('pause', () => {
+  playPauseIcon.classList.remove('fa-pause');
+  playPauseIcon.classList.add('fa-play');
+})
+
+
+// dark and light mode toggle
 lightToggleIcon.addEventListener('click', () => {
   if (isDark) {
     body.style.backgroundColor = 'white';

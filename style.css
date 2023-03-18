@@ -17,6 +17,10 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + label .radio-icon i {
+  color: black;
+}
+
+label .radio-icon i {
   color: #e5e5e5;
 }
 

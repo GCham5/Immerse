@@ -3,16 +3,12 @@ import { audioCtx, animate, animate2 } from './animate';
 
 let currentAudioIndex = 0;
 
-export function playPause(playPauseIcon) {
+export function playPause() {
     checkAudioCtxState();
     if (audio.paused) {
         audio.play();
-        playPauseIcon.classList.remove('fa-play');
-        playPauseIcon.classList.add('fa-pause');
     } else { 
         audio.pause();
-        playPauseIcon.classList.remove('fa-pause');
-        playPauseIcon.classList.add('fa-play');
     }
 }
 
@@ -46,7 +42,7 @@ export function changeVisual() {
 }
 
 function checkAudioCtxState() {
-    // checking if audioCtx is suspended, i.e not actived by gesture
+    // checking if audioCtx is suspended, i.e not activated by gesture
     // this will mostly occur on page refresh (first time clicking play, hence also call changeVisual())
     if (audioCtx.state === "suspended") {
         audioCtx.resume();
