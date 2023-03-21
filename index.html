@@ -13,31 +13,37 @@
 </head>
 
 <body>
-  <div id="controls-main">
-    <div id="controls">
-      <button class="controls-item" id="previous">
-        <i class="fa-solid fa-backward-fast"></i>
-      </button>
-      <button class="controls-item" id="play-pause">
-        <i id="play-pause-icon" class="fa-solid fa-play"></i>
-      </button>
-      <button class="controls-item" id="next">
-        <i class="fa-solid fa-forward-fast"></i>
-      </button>
-      <input class="controls-item" type="range" id="seek" value="0" min="0" max="100" step="1">
-      <div class="controls-item" id="visual-option">
-        <input type="radio" name="option" value="circle" id="circle" checked>
-        <label for="circle"><span class="radio-icon"><i class="fa-solid fa-circle"></i></span></label>
-  
-        <input type="radio" name="option" value="bar" id="bar">
-        <label for="bar"><span class="radio-icon"><i class="fa-solid fa-chart-simple"></i></span></label>
+  <div id="main-container">
+    <div id="controls-main">
+      <div id="controls">
+        <button class="controls-item" id="previous">
+          <i class="fa-solid fa-backward-fast"></i>
+        </button>
+        <button class="controls-item" id="play-pause">
+          <i id="play-pause-icon" class="fa-solid fa-play"></i>
+        </button>
+        <button class="controls-item" id="next">
+          <i class="fa-solid fa-forward-fast"></i>
+        </button>
+        <input class="controls-item" type="range" id="seek" value="0" min="0" max="100" step="1">
+        <div class="controls-item" id="visual-option">
+          <input type="radio" name="option" value="circle" id="circle" checked>
+          <label for="circle"><span class="radio-icon"><i class="fa-solid fa-circle"></i></span></label>
+
+          <input type="radio" name="option" value="bar" id="bar">
+          <label for="bar"><span class="radio-icon"><i class="fa-solid fa-chart-simple"></i></span></label>
+        </div>
       </div>
+      <i id="light-toggle" class="fa-solid fa-sun"></i>
     </div>
-    <i id="light-toggle" class="fa-solid fa-sun"></i>
+    <div id="title-container">
+      <h2>Song Title</h2>
+    </div>
+    <div id="canvas-container">
+      <canvas id="canvas"></canvas>
+    </div>
   </div>
-  <div>
-    <canvas id="canvas"></canvas>
-  </div>
+
 
   <script type="module" src="/js/animate.js"></script>
   <script type="module" src="/js/controls.js"></script>
