@@ -1,0 +1,29 @@
+{
+    "songs": [
+      {
+        "title": "Benzo",
+        "location": "music/Benzo.m4a"
+      },
+      {
+        "title": "Don't You Know",
+        "location": "music/DontYouKnow.m4a"
+      },
+      {
+        "title": "Havana",
+        "location": "music/Havana.m4a"
+      },
+      {
+        "title": "Last Time",
+        "location": "music/LastTime.m4a"
+      },
+      {
+        "title": "Praise",
+        "location": "music/Praise.m4a"
+      },
+      {
+        "title": "Romantic",
+        "location": "music/Romantic.m4a"
+      }
+    ]
+  }
+  

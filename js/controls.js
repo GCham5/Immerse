@@ -1,7 +1,7 @@
-import { audio, audioFiles } from './main';
+import { audio, songs } from './main';
 import { audioCtx, animate, animate2 } from './animate';
 
-let currentAudioIndex = 0;
+export let currentAudioIndex = 0;
 
 export function playPause() {
     checkAudioCtxState();
@@ -15,10 +15,10 @@ export function playPause() {
 export function playNext() {
     checkAudioCtxState();
     currentAudioIndex++; 
-    if (currentAudioIndex >= audioFiles.length) {
+    if (currentAudioIndex >= songs.length) {
         currentAudioIndex = 0;
     }
-    audio.src = audioFiles[currentAudioIndex];
+    audio.src = songs[currentAudioIndex].location;
     audio.play();
 } 
 
@@ -26,9 +26,9 @@ export function playPrevious() {
     checkAudioCtxState();
     currentAudioIndex--;
     if (currentAudioIndex < 0) {
-        currentAudioIndex = audioFiles.length - 1;
+        currentAudioIndex = songs.length - 1;
     }
-    audio.src = audioFiles[currentAudioIndex];
+    audio.src = songs[currentAudioIndex].location;
     audio.play();
 }
 
