@@ -10,7 +10,7 @@ export default defineConfig({
     plugins: [
         copy({
             targets: [
-                { src: 'music/**/*', dest: 'dist/music' }
+                { src: 'public/music/**/*', dest: 'dist/music' }
             ]
         })
     ]
