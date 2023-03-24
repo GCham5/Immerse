@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 export const getAudioData = async () => {
-  const data = await fetch('/songs.json').then(response => response.json());
+  const data = await fetch('songs.json').then(response => response.json());
   const songs = data.songs.map(song => ({
     title: song.title,
     location: song.location,
