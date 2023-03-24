@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
-  /* height: 100% */
 }
 
 i {
@@ -69,11 +68,6 @@ label .radio-icon i {
 
 /* ids */
 
-/* #main-container {
-  width: 100vw;
-  height: 100vh;
-} */
-
 #title-container {
   display: flex;
   justify-content: center;
@@ -84,11 +78,6 @@ label .radio-icon i {
   font-family: 'Inter', sans-serif;
   transition: transform 1s ease-out;
 }
-
-/* #canvas-container {
-  width: 100%;
-  height: 100%;
-} */
 
 #canvas {
   position: absolute;
