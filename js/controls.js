@@ -41,7 +41,6 @@ export function changeVisual() {
     }
 }
 
-
 function checkAudioCtxState() {
     // checking if audioCtx is suspended, i.e not activated by gesture
     // this will mostly occur on page refresh (first time clicking play, hence also call changeVisual())

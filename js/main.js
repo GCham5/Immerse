@@ -1,4 +1,5 @@
 import { playPause, playNext, playPrevious, changeVisual, currentAudioIndex } from "./controls";
+import { changeColor } from "./animate";
 
 let isDark = true;
 
@@ -11,10 +12,12 @@ const visualOption = document.getElementById('visual-option');
 const playPauseIcon = document.getElementById('play-pause-icon');
 const lightToggleIcon = document.getElementById('light-toggle');
 const title = document.getElementById('title');
+const colorPicker = document.getElementById('color-picker');
 
 playPauseButton.addEventListener("click", () => playPause());
 nextButton.addEventListener("click", () => playNext());
 previousButton.addEventListener("click", () => playPrevious());
+colorPicker.addEventListener("input", () => changeColor(event));
 
 document.addEventListener("DOMContentLoaded", function () {
   visualOption.addEventListener('change', () => changeVisual());
@@ -62,7 +65,6 @@ audio.addEventListener('play', () => {
   playPauseIcon.classList.remove('fa-play');
   playPauseIcon.classList.add('fa-pause');
   updateSongTitle();
-
   // ensure animation plays
   changeVisual();
 }); 

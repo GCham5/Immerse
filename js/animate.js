@@ -4,6 +4,8 @@ const canvas = document.getElementById("canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+let color = '#27C36A';
+
 const ctx = canvas.getContext("2d");
 
 export const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -24,11 +26,6 @@ const barWidth = canvas.width / bufferLength;
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
 const radius = 100;
-// ctx.fillStyle = 'blue';
-// ctx.beginPath(); 
-// ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-// ctx.fill();
-// ctx.stroke();
 
 // Draw the rectangle
 const rectWidth = 20;
@@ -42,10 +39,12 @@ export function animate() {
     const x = centerX + radius * Math.cos(angle);
     const y = centerY + radius * Math.sin(angle);
     barHeight = dataArray[i];
-    const red = (i * barHeight) / 10;
-    const green = i * 4;
-    const blue = barHeight / 4 - 12;
-    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+    // const red = (i * barHeight) / 10;
+    // const green = i * 4;
+    // const blue = barHeight / 4 - 12;
+    // ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+
+    ctx.fillStyle = color;
     ctx.save(); // save origin context (0,0)
     ctx.translate(x, y); // make this point on the circumference the new origin
     ctx.rotate(angle);
@@ -64,13 +63,18 @@ export function animate2() {
   analyser.getByteFrequencyData(dataArray);
   for (let i = 0; i < bufferLength; i++) {
     barHeight = dataArray[i];
-    const red = (i * barHeight) / 10;
-    const green = i * 4;
-    const blue = barHeight / 4 - 12;
-    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+    // const red = (i * barHeight) / 10;
+    // const green = i * 4;
+    // const blue = barHeight / 4 - 12;
+    // ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+    ctx.fillStyle = color;
     ctx.fillRect(x, canvas.height - barHeight * 2, barWidth, canvas.height);
     x += barWidth;
   }
 
   requestAnimationFrame(animate2);
+}
+
+export function changeColor(event) {
+  color = event.target.value;
 }
