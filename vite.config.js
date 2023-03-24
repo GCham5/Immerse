@@ -3,15 +3,15 @@ import copy from 'rollup-plugin-copy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-   base: '/Immerse/',
-   build: {
-    target: "esnext"
-  }, 
-  plugins: [
-    copy({
-      targets: [
-        { src: 'public/music/**/*', dest: 'dist/music' }
-      ]
-    })
-  ]
+    base: '/Immerse/',
+    build: {
+        target: "esnext"
+    },
+    plugins: [
+        copy({
+            targets: [
+                { src: 'music/**/*', dest: 'dist/music' }
+            ]
+        })
+    ]
 })
