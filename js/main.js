@@ -32,11 +32,17 @@ export const getAudioData = async () => {
   return { songs, audio };
 };
 
-export const audioData = await getAudioData();
-export const { songs, audio } = audioData;
+export const { songs, audio } = await getAudioData();;
 
 function updateSongTitle() {
-  title.innerHTML = songs[currentAudioIndex].title;
+  // prevent animation from occuring on play/pause of same song
+  if (title.textContent !== songs[currentAudioIndex].title) {
+    title.textContent = songs[currentAudioIndex].title;
+    title.classList.add("animate");
+    setTimeout(() => {
+      title.classList.remove("animate");
+    }, 1000);
+  }
 }
 
 seekBar.addEventListener('change', () => {
@@ -56,7 +62,10 @@ audio.addEventListener('play', () => {
   playPauseIcon.classList.remove('fa-play');
   playPauseIcon.classList.add('fa-pause');
   updateSongTitle();
-});
+
+  // ensure animation plays
+  changeVisual();
+}); 
 
 audio.addEventListener('pause', () => {
   playPauseIcon.classList.remove('fa-pause');

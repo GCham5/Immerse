@@ -45,6 +45,22 @@ label .radio-icon i {
   margin-right: 7px;
 }
 
+.animate {
+  animation: moveText 1s ease-out;
+}
+
+@keyframes moveText {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
 /* ids */
 
 /* #main-container {
@@ -56,6 +72,11 @@ label .radio-icon i {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#title {
+  font-family: 'Inter', sans-serif;
+  transition: transform 1s ease-out;
 }
 
 /* #canvas-container {
