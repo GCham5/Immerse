@@ -10,8 +10,6 @@ i {
 }
 
 h2 {
-  /* position: absolute;
-  left: 150px; */
   color: #27C36A;
 }
 
@@ -21,6 +19,14 @@ input[type="radio"] {
 
 input[type="radio"]:checked + label .radio-icon i {
   color: black;
+}
+
+input[type="color"] {
+  display: none;
+}
+
+label .color i {
+  color: #27C36A;
 }
 
 label .radio-icon i {
@@ -120,10 +126,17 @@ label .radio-icon i {
   font-family: "Font Awesome 5 Free";
 }
 
-#color-picker {
+#color-selector {
+  display: flex;
+  font-family: "Font Awesome 5 Free";
+}
+
+#color-div {
   position: absolute;
   left: 30px;
+}
 
+#color-picker {
   cursor: pointer;
   background: none;
   border: none;

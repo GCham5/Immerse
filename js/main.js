@@ -13,11 +13,16 @@ const playPauseIcon = document.getElementById('play-pause-icon');
 const lightToggleIcon = document.getElementById('light-toggle');
 const title = document.getElementById('title');
 const colorPicker = document.getElementById('color-picker');
+const colorPickerIcon = document.getElementsByClassName('fa-droplet')[0];
 
 playPauseButton.addEventListener("click", () => playPause());
 nextButton.addEventListener("click", () => playNext());
 previousButton.addEventListener("click", () => playPrevious());
-colorPicker.addEventListener("input", () => changeColor(event));
+colorPicker.addEventListener("input", () => {
+  const colour = colorPicker.value;
+  colorPickerIcon.style.color = colour;
+  changeColor(colour);
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   visualOption.addEventListener('change', () => changeVisual());

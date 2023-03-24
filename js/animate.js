@@ -75,6 +75,6 @@ export function animate2() {
   requestAnimationFrame(animate2);
 }
 
-export function changeColor(event) {
-  color = event.target.value;
+export function changeColor(colour) {
+  color = colour;
 }
