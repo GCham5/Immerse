@@ -36,7 +36,6 @@ export const getAudioData = async () => {
     location: song.location,
   }));
   const audio = new Audio(songs[0].location);
-
   return { songs, audio };
 };
 
