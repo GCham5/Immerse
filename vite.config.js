@@ -2,5 +2,8 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-   base: '/Immerse/'
+   base: '/Immerse/',
+   build: {
+    target: "esnext"
+  }
 })
