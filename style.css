@@ -182,3 +182,31 @@ button:hover {
 i:hover {
   cursor: pointer;
 }
+
+
+/* mobile screens */
+@media (max-width: 480px) {
+  #color-picker {
+    cursor: pointer;
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+    position: absolute;
+    left: 17px;
+    top: 94px;
+    opacity: 0;
+  }
+
+  label[for="color-picker"] {
+    color: #27C36A;
+    position: absolute;
+    left: 30px;
+    top: 91px;
+  }
+
+  #light-toggle {
+    position: absolute;
+    right: 30px;
+    top: 91px;
+  }
+}
